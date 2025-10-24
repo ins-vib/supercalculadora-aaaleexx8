@@ -1,6 +1,5 @@
-
-
 package org.yourcompany.calculadora;
+import java.util.Random;
 
 /**
  *
@@ -33,6 +32,13 @@ public class Calculadora {
         // System.out.println("Suma dels quadrats dels primers 5 números: " + sumaQuadrats(5));
         // System.out.println("Suma dels quadrats dels primers 7 números: " + sumaQuadrats(7));
 
+        // Exemples de crida al mètode numeroCares
+        int c = GirsMoneda(1000);
+        System.out.println("Han sortit "+ c + "cares.");
+
+       preuCinema(5,true,false);
+       System.out.println("");
+
         // Exemples de crida per al mètode calcularPotencia
         // System.out.println("2 elevat a la potència 3: " + calcularPotencia(2, 3));
         // System.out.println("5 elevat a la potència 4: " + calcularPotencia(5, 4));
@@ -62,5 +68,51 @@ public class Calculadora {
         return comptador;
     }
 
+    public static int GirsMoneda(int r) {
+        
+        Random giro = new Random();
 
-}
+        int cares = 0;
+        int creus = 0;
+
+        for(int iteracions = 1; iteracions <= r; iteracions++) {
+            int resultat = giro.nextInt(2);
+
+            if (resultat == 0) {
+                cares++;
+            }
+            }
+            return cares; 
+    }
+
+
+    public static double preuCinema(double entrada, boolean dia, boolean jove)  {
+
+        int descompte;
+        
+        System.out.println("És Cap de Setmana?");
+        
+        System.out.println("Tens Carnet Jove? ");
+ 
+        
+            if (dia) {
+                descompte =10;
+            System.out.println("El cap de setmana es un 10% mes car.");
+            entrada = entrada + (entrada * (descompte/100.0));
+        }
+
+        if (jove) {
+            
+        System.out.println("Obtens un 15% de descompte, per el Carnet Jove.");
+        descompte = 15;
+        entrada = entrada - (entrada * (descompte/100.0));
+            
+        }
+        
+        System.out.println("Preu final de l'entrada: " + entrada + " €");
+    
+    return entrada;
+      }
+    }
+
+    
